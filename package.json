@@ -1,0 +1,15 @@
+{
+  "name": "jsdsl",
+  "private": true,
+  "title": "Thought experiments in fluent interfaces, domain specific languages, and more in javascript and coffeescript",
+  "version": "0.0.1",
+  "author": {
+    "name": "David Mosher",
+    "company": "Test Double",
+    "email": "dave@testdouble.com"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-jasmine-bundle": ">= 0.0.1"
+  }
+}
