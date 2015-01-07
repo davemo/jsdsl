@@ -1,5 +1,6 @@
 class Customer
-  orders: []
+  constructor: ->
+    @orders = []
 
   newOrder: ->
     o = new Order(1)
@@ -7,38 +8,25 @@ class Customer
     o
 
 class Order
-  lineItems: []
-  priority: false
-
   constructor: (@id) ->
+    @lineItems = []
+    @priority = false
 
-  with: (lineItemId, productId) ->
-    l = new LineItem(lineItemId, @, productId)
+  with: (lineItemId, product) ->
+    l = new LineItem(lineItemId, product)
     @lineItems.push(l)
-    l
+    @
+
+  skippable: ->
+    @lineItems[@lineItems.length - 1].shouldSkip = true;
+    @
 
   priorityRush: ->
     @priority = true
     @
 
 class LineItem
-  constructor: (@id, @order, @product) ->
+  constructor: (@id, @product) ->
+    @shouldSkip = false
 
-  with: (lineItemId, productId) ->
-    @order.with.call(@order, lineItemId, productId)
-
-  skippable: ->
-    @shouldSkip = true
-    @
-
-  priorityRush: ->
-    @order.priorityRush.call(@order)
-
-class Product
-  constructor: (@id) ->
-
-# // customer.newOrder()
-# // .with(6, "TAL")
-# // .with(5, "HPK").skippable()
-# // .with(3, "LGV")
-# // .priorityRush();
+module?.exports = {Customer, Order, LineItem}

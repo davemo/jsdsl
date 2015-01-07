@@ -1,4 +1,4 @@
-FluentConstructor = require "./../lib/fluent.js"
+FluentConstructor = require "./../lib/fluent.coffee"
 
 describe "fluent interface with constructor funcs", ->
 
@@ -11,22 +11,21 @@ describe "fluent interface with constructor funcs", ->
 
   describe "chaining", ->
     When ->
-      @order.with(6, "TAL")
-            .with(5, "HPK").skippable()
-            .with(3, "LGV")
+      @order.with(1, "widget")
+            .with(2, "pants").skippable()
+            .with(3, "cows")
             .priorityRush()
 
     Then  -> @order.lineItems.length == 3
-    And   -> @order.lineItems[0].id == 6
-    And   -> @order.lineItems[0].product == "TAL"
+    And   -> @order.lineItems[0].id == 1
+    And   -> @order.lineItems[0].product == "widget"
     And   -> @order.lineItems[0].shouldSkip == false
 
-    And   -> @order.lineItems[1].id == 5
-    And   -> @order.lineItems[1].product == "HPK"
+    And   -> @order.lineItems[1].id == 2
+    And   -> @order.lineItems[1].product == "pants"
     And   -> @order.lineItems[1].shouldSkip == true
 
     And   -> @order.lineItems[2].id == 3
-    And   -> @order.lineItems[2].product == "LGV"
+    And   -> @order.lineItems[2].product == "cows"
     And   -> @order.lineItems[2].shouldSkip == false
-
     And   -> @order.priority == true
