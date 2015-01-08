@@ -14,9 +14,9 @@ describe "fluent interface with api builder object", ->
   describe "chaining", ->
     When ->
       @result = @subject.with(1, "widget")
-              .with(2, "pants").skippable()
-              .with(3, "cows").priorityRush()
-              .build()
+                        .with(2, "pants").skippable()
+                        .with(3, "cows").priorityRush()
+                        .build()
 
     Then  -> @result.lineItems.length == 3
     And   -> @result.lineItems[0].id == 1

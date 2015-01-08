@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Extend JS</title>
+  <script src="/lib/fluent.js"></script>
+  <style>
+    body {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Fluent Interface</h1>
+
+  <pre>
+    var customer = new Customer();
+customer.newOrder()
+                .with(1, "widgets")
+                          .with(2, "pants").skippable()
+                             .with(3, "cows").priorityRush();
+  </pre>
+
+</body>
+</html>
