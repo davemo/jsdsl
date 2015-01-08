@@ -2,7 +2,7 @@
 
   var templatePathForDirective = function(camelCasedDirectiveName) {
     var snakeCased = _.str.underscored(camelCasedDirectiveName);
-    return "/examples/angular/directives/" + snakeCased + ".html";
+    return "/examples/angular_autowire/directives/" + snakeCased + ".html";
   };
 
   window.autowireAngularObjects = function(moduleName , objectType, name, fn) {
