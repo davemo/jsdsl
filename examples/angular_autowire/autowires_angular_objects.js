@@ -5,15 +5,7 @@
     return "/examples/angular_autowire/directives/" + snakeCased + ".html";
   };
 
-  window.autowireAngularObjects = function(moduleName , objectType, name, fn) {
-    if(_.contains(['controller', 'service', 'provider', 'factory'], objectType)) {
-      angular.module(moduleName)[objectType](name, fn);
-    }
-
-    if(objectType === 'config' || objectType === 'run') {
-      angular.module(moduleName)[objectType](fn);
-    }
-
+  window.autowireAngularObjects = function(moduleName, objectType, name, fn) {
     if(objectType === 'directive') {
       if (_.isFunction(fn)) {
         angular.module(moduleName).directive(name, fn);
