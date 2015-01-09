@@ -1,6 +1,6 @@
-FluentConstructor = require "./../lib/fluent.coffee"
+FluentConstructor = require "./../lib/fluent.js"
 
-describe "coffee: fluent interface with constructor funcs", ->
+describe "fluent interface with constructor funcs", ->
 
   Given -> @subject = new FluentConstructor.Customer()
   Given -> @order   = @subject.newOrder()
