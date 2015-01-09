@@ -1,7 +1,7 @@
 DomainObjects      = require "./../lib/order_domain_objects.coffee"
 FluentOrderBuilder = require "./../lib/fluent_order_builder.coffee"
 
-describe "fluent interface with api builder object", ->
+describe "coffee: fluent interface with api builder object", ->
 
   Given -> @order   = new DomainObjects.Order(1)
   Given -> @subject = new FluentOrderBuilder(@order)
